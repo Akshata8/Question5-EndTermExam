@@ -11,7 +11,7 @@ class ToughQuestion2 {
                         Integer butter;
                         Integer jam;
                         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                        Calories cal=new Calories();
+                        Calories cal = new Calories();
                         System.out.println("1.Bread only\n2.Bread+Jam\n3.Bread+Jam+Butter");
                         System.out.println("Enter the choice");
                         Integer choice = Integer.parseInt(br.readLine());
@@ -20,14 +20,20 @@ class ToughQuestion2 {
                         case 1 : System.out.println("Enter the number of Slice of bread");
                         	bread = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for only bread
-                        	System.out.println();
+                        	int t=cal.calculateCalories(bread);
+                        	 System.out.printf("%.3f",cal.calculateEnergy(t));
+                             System.out.println(" kJ of energy generated from "+cal.returnCalories(t)+" calories");
+                        	
+                        	
                         	break;
                         case 2 : System.out.println("Enter the number of Slice of bread");
                         	bread = Integer.parseInt(br.readLine());
                         	System.out.println("Enter the number teaspoon of Jam");
                         	jam = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for only bread & jam
-                        	System.out.println();
+                        	int r = cal.calculateCalories(bread,jam);
+                        	System.out.printf("%.3f",cal.calculateEnergy(r));
+                            System.out.println(" kJ of energy generated from "+cal.returnCalories(r)+" calories");
                         	break;
                         case 3 : System.out.println("Enter the number of Slice of bread");
                         	bread = Integer.parseInt(br.readLine());
@@ -36,20 +42,40 @@ class ToughQuestion2 {
                         	System.out.println("Enter the number teaspoon of Butter");
                         	butter = Integer.parseInt(br.readLine());
                         	//call the function which calculate the calories for  bread,jam & butter
-                        	System.out.println();
+                        	int p = cal.calculateCalories(bread,jam,butter);
+                        	
+                        	 System.out.printf("%.3f",cal.calculateEnergy(p));
+                             System.out.println(" kJ of energy generated from "+cal.returnCalories(p)+" calories");
                         	break;
                         }
-                        //System.out.printf("%.3f",ca.calculateEnergy());
-                        //System.out.println(" kJ of energy generated from "+ca.returnCalories()+" calories");
+                        
             }
 }
+			
 class Calories {
             
-            int calculateCalories() {
+          
+		int calculateCalories(int bread) {
             //you have to overload this function for three parameters refer the question
-            	return -1;
+        	   int b=74*bread;
+            return b;
+            
             }
-            
-            
-            
-}
+           int calculateCalories(int bread,int jam) {
+        	   int b=(74*bread)+(26*jam);
+        	   return b;
+           }
+         int calculateCalories(int bread,int jam,int butter) {
+        	 int b=(74*bread)+(26*jam)+(102*butter);
+        	 return b;
+           }
+       double returnCalories(double b) {
+	
+		return b;
+	}
+	double calculateEnergy(double b) {
+		return b=b*b*4.1868;
+	}
+	}
+
+

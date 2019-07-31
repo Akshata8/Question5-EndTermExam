@@ -16,6 +16,7 @@ public class TestToughQuestion2 {
 	public void testBreadJamCalorie() {
 		assertEquals(226,cal.calculateCalories(2,3));
 	}
+	
 	@SuppressWarnings("static-access")
     @Test
 	public void testBreadJamButterCalorie() {
